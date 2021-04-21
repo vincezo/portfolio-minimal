@@ -5,7 +5,7 @@ module.exports = {
   siteShortTitle: "vz.", // Used as logo text in header, footer, and splash screen
   siteDescription:
     "Hi there! I'm Vince Esan Zuño, an Amazon Virtual Assistant based in Philippines.",
-  siteUrl: "https://gatsby-starter-portfolio-minimal.netlify.app/",
+  siteUrl: "https://vincezuno.netlify.app/",
   siteLanguage: "en_US",
   siteIcon: "content/favicon-b.png", // Relative to gatsby-config file
   seoTitleSuffix: "Amazon Virtual Assistant", // SEO title syntax will be e.g. "Imprint - {seoTitleSuffix}"
