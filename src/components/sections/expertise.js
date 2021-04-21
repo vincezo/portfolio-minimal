@@ -11,7 +11,7 @@ import Context from "../../context"
 import ContentWrapper from "../../styles/contentWrapper"
 import Underlining from "../../styles/underlining"
 import Button from "../../styles/button"
-import Icon from "../../components/icons"
+import Icon from "../icons"
 import { lightTheme, darkTheme } from "../../styles/theme"
 
 const StyledSection = styled.section`
@@ -51,7 +51,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
         padding-left: 0;
       }
     }
-    .projects {
+    .expertise {
       display: flex;
       flex-direction: row;
       margin-top: -2.5rem;
@@ -105,7 +105,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
   }
 `
 
-const StyledProject = styled(motion.div)`
+const StyledExpertise = styled(motion.div)`
   display: flex;
   flex-direction: column-reverse;
   justify-content: flex-end;
@@ -199,14 +199,14 @@ const StyledProject = styled(motion.div)`
   }
 `
 
-const Projects = ({ content }) => {
+const Expertise = ({ content }) => {
   const { darkMode } = useContext(Context).state
   const sectionDetails = content[0].node
-  const projects = content.slice(1, content.length)
+  const expertise = content.slice(1, content.length)
 
   // visibleProject is needed to show which project is currently
   // being viewed in the horizontal slider on mobile and tablet
-  const [visibleProject, setVisibleProject] = useState(1)
+  const [visibleExpertise, setVisibleExpertise] = useState(1)
 
   // projects don't track the visibility by using the onScreen hook
   // instead they use react-visibility-sensor, therefore their visibility
@@ -219,7 +219,7 @@ const Projects = ({ content }) => {
       setOnScreen(updatedOnScreen)
     }
   }
-  const pVariants = {
+  const eVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
   }
@@ -227,12 +227,12 @@ const Projects = ({ content }) => {
   useEffect(() => {
     // mobile and tablet only: set first project as visible in the
     // horizontal slider
-    setVisibleProject(1)
+    setVisibleExpertise(1)
     // required for animations: set visibility for all projects to
     // "false" initially
     let initial = {}
-    projects.forEach(project => {
-      initial[project.node.frontmatter.position] = false
+    expertise.forEach(expertise => {
+      initial[expertise.node.frontmatter.position] = false
     })
     setOnScreen(initial)
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -255,7 +255,7 @@ const Projects = ({ content }) => {
   }
 
   return (
-    <StyledSection id="projects">
+    <StyledSection id="expertise">
       <StyledContentWrapper>
         <motion.div
           ref={tRef}
@@ -264,12 +264,12 @@ const Projects = ({ content }) => {
         >
           <h3 className="section-title">{sectionDetails.frontmatter.title}</h3>
           <div className="counter">
-            {visibleProject} / {projects.length}
+            {visibleExpertise} / {expertise.length}
           </div>
         </motion.div>
-        <div className="projects">
-          {projects.map((project, key) => {
-            const { body, frontmatter } = project.node
+        <div className="expertise">
+          {expertise.map((expertise, key) => {
+            const { body, frontmatter } = expertise.node
             return (
               <VisibilitySensor
                 key={key}
@@ -277,9 +277,9 @@ const Projects = ({ content }) => {
                 partialVisibility={true}
                 minTopValue={100}
               >
-                <StyledProject
+                <StyledExpertise
                   position={key + 1}
-                  variants={pVariants}
+                  variants={eVariants}
                   animate={
                     onScreen[frontmatter.position] ? "visible" : "hidden"
                   }
@@ -336,14 +336,14 @@ const Projects = ({ content }) => {
                   </div>
                   {/* If image in viewport changes, update state accordingly */}
                   <VisibilitySensor
-                    onChange={() => setVisibleProject(frontmatter.position)}
+                    onChange={() => setVisibleExpertise(frontmatter.position)}
                   >
                     <Img
                       className="screenshot"
                       fluid={frontmatter.screenshot.childImageSharp.fluid}
                     />
                   </VisibilitySensor>
-                </StyledProject>
+                </StyledExpertise>
               </VisibilitySensor>
             )
           })}
@@ -369,7 +369,7 @@ const Projects = ({ content }) => {
   )
 }
 
-Projects.propTypes = {
+Expertise.propTypes = {
   content: PropTypes.arrayOf(
     PropTypes.shape({
       node: PropTypes.shape({
@@ -380,4 +380,4 @@ Projects.propTypes = {
   ).isRequired,
 }
 
-export default Projects
+export default Expertise

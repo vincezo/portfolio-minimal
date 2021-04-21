@@ -1,14 +1,14 @@
 module.exports = {
   //-- SITE SETTINGS -----
-  author: "@konstantinmuenster",
-  siteTitle: "Gatsby Starter Portfolio Minimal",
-  siteShortTitle: "Gatsby", // Used as logo text in header, footer, and splash screen
+  author: "@vinceesanzuño",
+  siteTitle: "Vince Esan Zuño - Amazon Virtual Assistant",
+  siteShortTitle: "vz.", // Used as logo text in header, footer, and splash screen
   siteDescription:
-    "A modern one-page portfolio with a clean yet expressive design.",
+    "Hi there! I'm Vince Esan Zuño, an Amazon Virtual Assistant based in Philippines.",
   siteUrl: "https://gatsby-starter-portfolio-minimal.netlify.app/",
   siteLanguage: "en_US",
-  siteIcon: "content/favicon.png", // Relative to gatsby-config file
-  seoTitleSuffix: "Portfolio Minimal", // SEO title syntax will be e.g. "Imprint - {seoTitleSuffix}"
+  siteIcon: "content/favicon-b.png", // Relative to gatsby-config file
+  seoTitleSuffix: "Amazon Virtual Assistant", // SEO title syntax will be e.g. "Imprint - {seoTitleSuffix}"
   useCookieBar: false, // If you use Google Analytics and want to be GDPR-compliant, set it to true
   googleAnalyticsTrackingId: "", // e.g. UA-XXXXXX-X
 
@@ -16,7 +16,7 @@ module.exports = {
   colors: {
     lightTheme: {
       primary: "#000000",
-      secondary: "#FFF4D9",
+      secondary: "#ddffbc",
       tertiary: "#F2F2F2",
       text: "#000000",
       subtext: "#555555",
@@ -50,7 +50,7 @@ module.exports = {
     "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2F%40konstantinmuenster",
   // rssFeed: "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.theguardian.com%2Finternational%2Frss",
 
-  shownArticles: 3,
+  // shownArticles: 3,
 
   //-- SOCIAL MEDIA SETTINGS -----
   // There are icons available for the following platforms:
@@ -58,25 +58,16 @@ module.exports = {
   socialMedia: [
     {
       name: "Linkedin",
-      url: "https://www.linkedin.com/in/konstantin-muenster/",
+      url: "https://www.linkedin.com/in/vinceesanzu%C3%B1o/",
     },
     {
-      name: "Medium",
-      url: "https://konstantinmuenster.medium.com/",
+      name: "Mail",
+      url: "mailto:vinceczuno@gmail.com",
     },
     {
-      name: "Github",
-      url:
-        "https://github.com/konstantinmuenster/gatsby-starter-portfolio-minimal",
+      name: "Skype",
+      url: "https://join.skype.com/invite/X6XVP3M60xWF",
     },
-    {
-      name: "Behance",
-      url: "https://www.behance.net/konstanmnster",
-    },
-    // {
-    //   name: "Mail",
-    //   url: "mailto:mail@konstantin.digital",
-    // },
   ],
 
   //-- NAVIGATION SETTINGS -----
@@ -87,8 +78,8 @@ module.exports = {
         url: "/#about",
       },
       {
-        name: "Features",
-        url: "/#projects",
+        name: "Expertise",
+        url: "/#expertise",
       },
       {
         name: "Contact",
@@ -98,18 +89,25 @@ module.exports = {
     button: {
       useFileName: true,
       name: "Resume",
-      fileName: "goldenpuppy.pdf", // the file has to be placed inside the static folder at the root level
+      fileName: "vince-esan-zuño-amazon-va.pdf", // the file has to be placed inside the static folder at the root level
       url: "", // if useFileName=false, you can set an anchor link here and use the button for navigational purposes
     },
   },
   footerLinks: [
     {
-      name: "Privacy",
-      url: "/privacy",
+      name: "",
     },
     {
-      name: "Imprint",
-      url: "/imprint",
+      name: "© 2021",
     },
+
+    // {
+    //   name: "Privacy",
+    //   url: "/privacy",
+    // },
+    // {
+    //   name: "Imprint",
+    //   url: "/imprint",
+    // },
   ],
 }

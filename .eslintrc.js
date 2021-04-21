@@ -10,7 +10,7 @@ module.exports = {
   extends: ["plugin:react/recommended", "plugin:prettier/recommended"],
   settings: {
     react: {
-      version: "detect",
+      version: "999.999.999",
     },
   },
   env: {
@@ -20,7 +20,12 @@ module.exports = {
   },
   plugins: ["@babel", "react", "react-hooks", "prettier"],
   rules: {
-    "prettier/prettier": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        endOfLine: "auto",
+      },
+    ],
     "react/no-find-dom-node": "off",
   },
 }

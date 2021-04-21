@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 import { motion, useAnimation } from "framer-motion"
 
 import { detectMobileAndTablet, isSSR } from "../../utils"
-import { useOnScreen } from "../../hooks/"
+import { useOnScreen } from "../../hooks"
 import ContentWrapper from "../../styles/contentWrapper"
 import Button from "../../styles/button"
 
@@ -40,7 +40,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
   }
 `
 
-const StyledInterests = styled.div`
+const StyledSkills = styled.div`
   display: grid;
   /* Calculate how many columns are needed, depending on interests count */
   grid-template-columns: repeat(
@@ -94,7 +94,7 @@ const StyledInterests = styled.div`
     }
   }
 
-  .interest {
+  .skills {
     width: 15.625rem;
     height: 3rem;
     display: flex;
@@ -110,11 +110,11 @@ const StyledInterests = styled.div`
   }
 `
 
-const Interests = ({ content }) => {
+const Skills = ({ content }) => {
   const { exports, frontmatter } = content[0].node
-  const { shownItems, interests } = exports
+  const { shownItems, skills } = exports
 
-  const [shownInterests, setShownInterests] = useState(shownItems)
+  const [shownSkills, setShownSkills] = useState(shownItems)
 
   const ref = useRef()
   const onScreen = useOnScreen(ref)
@@ -127,9 +127,9 @@ const Interests = ({ content }) => {
     // Otherwise interests.mdx will determine how many interests are shown
     // (isSSR) is used to prevent error during gatsby build
     if (!isSSR && detectMobileAndTablet(window.innerWidth)) {
-      setShownInterests(interests.length)
+      setShownSkills(skills.length)
     }
-  }, [interests])
+  }, [skills])
 
   useEffect(() => {
     const sequence = async () => {
@@ -145,18 +145,18 @@ const Interests = ({ content }) => {
       }
     }
     sequence()
-  }, [onScreen, shownInterests, iControls, bControls])
+  }, [onScreen, shownSkills, iControls, bControls])
 
-  const showMoreItems = () => setShownInterests(shownInterests + 4)
+  const showMoreItems = () => setShownSkills(shownSkills + 4)
 
   return (
-    <StyledSection id="interests">
+    <StyledSection id="skills">
       <StyledContentWrapper>
         <h3 className="section-title">{frontmatter.title}</h3>
-        <StyledInterests itemCount={interests.length} ref={ref}>
-          {interests.slice(0, shownInterests).map(({ name, icon }, key) => (
+        <StyledSkills itemCount={skills.length} ref={ref}>
+          {skills.slice(0, shownSkills).map(({ name, icon }, key) => (
             <motion.div
-              className="interest"
+              className="skills"
               key={key}
               custom={key}
               initial={{ opacity: 0, scaleY: 0 }}
@@ -165,7 +165,7 @@ const Interests = ({ content }) => {
               <Img className="icon" fixed={icon.childImageSharp.fixed} /> {name}
             </motion.div>
           ))}
-          {shownInterests < interests.length && (
+          {shownSkills < skills.length && (
             <motion.div initial={{ opacity: 0, scaleY: 0 }} animate={bControls}>
               <Button
                 onClick={() => showMoreItems()}
@@ -176,18 +176,18 @@ const Interests = ({ content }) => {
               </Button>
             </motion.div>
           )}
-        </StyledInterests>
+        </StyledSkills>
       </StyledContentWrapper>
     </StyledSection>
   )
 }
 
-Interests.propTypes = {
+Skills.propTypes = {
   content: PropTypes.arrayOf(
     PropTypes.shape({
       node: PropTypes.shape({
         exports: PropTypes.shape({
-          interests: PropTypes.array.isRequired,
+          skills: PropTypes.array.isRequired,
           shownItems: PropTypes.number.isRequired,
         }).isRequired,
         frontmatter: PropTypes.object.isRequired,
@@ -196,4 +196,4 @@ Interests.propTypes = {
   ).isRequired,
 }
 
-export default Interests
+export default Skills

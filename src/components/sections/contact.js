@@ -14,7 +14,6 @@ const StyledSection = styled(motion.section)`
   width: 100%;
   height: auto;
   background: ${({ theme }) => theme.colors.background};
-  margin-top: 6rem;
   display: flex;
   justify-content: center;
 `
