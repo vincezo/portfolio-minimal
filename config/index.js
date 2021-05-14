@@ -1,14 +1,14 @@
 module.exports = {
   //-- SITE SETTINGS -----
   author: "@vinceesanzuño",
-  siteTitle: "Vince Esan Zuño - Amazon Virtual Assistant",
+  siteTitle: "Vince Esan Zuño - Ecommerce Virtual Assistant",
   siteShortTitle: "vz.", // Used as logo text in header, footer, and splash screen
   siteDescription:
-    "Hi there! I'm Vince Esan Zuño, an Amazon Virtual Assistant based in Philippines.",
+    "Hi there! I'm Vince Esan Zuño, an Ecommerce Virtual Assistant based in Philippines.",
   siteUrl: "https://vincezuno.netlify.app/",
   siteLanguage: "en_US",
   siteIcon: "content/favicon-b.png", // Relative to gatsby-config file
-  seoTitleSuffix: "Amazon Virtual Assistant", // SEO title syntax will be e.g. "Imprint - {seoTitleSuffix}"
+  seoTitleSuffix: "Ecommerce Virtual Assistant", // SEO title syntax will be e.g. "Imprint - {seoTitleSuffix}"
   useCookieBar: false, // If you use Google Analytics and want to be GDPR-compliant, set it to true
   googleAnalyticsTrackingId: "", // e.g. UA-XXXXXX-X
 
@@ -89,7 +89,7 @@ module.exports = {
     button: {
       useFileName: true,
       name: "Resume",
-      fileName: "vince-esan-zuño-amazon-va.pdf", // the file has to be placed inside the static folder at the root level
+      fileName: "vince-esan-zuño-ecommerce-va.pdf", // the file has to be placed inside the static folder at the root level
       url: "", // if useFileName=false, you can set an anchor link here and use the button for navigational purposes
     },
   },
